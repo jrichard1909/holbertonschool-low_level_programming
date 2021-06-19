@@ -19,14 +19,14 @@ int main(void)
 			{
 				for (d = 0 ; d <= 9 ; d++)
 				{
-					if (a <= c && b <= d && (a > 0 || b > 0 || c > 0 || d > 0))
+					if (a <= c && b <= d && (a > 0 || b > 0 || c > 0 || d > 0) && !(a == c && b == d))
 					{
 					putchar (a + '0');
 					putchar (b + '0');
 					putchar (32);
 					putchar (c + '0');
 					putchar (d + '0');
-					if (a <= 9 && b <= 9)
+					if ((a < 9 && b <= 9) || (a == 9 && b < 8))
 					{
 						putchar (44);
 						putchar (32);
