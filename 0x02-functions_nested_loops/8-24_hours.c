@@ -9,46 +9,30 @@
 
 void jack_bauer(void)
 {
-	int hd;
-	int hu;
-	int md;
-	int mu;
+	int hd, hu, md, mu, a;
 
 	for (hd = 0; hd <= 2; hd++)
 	{
 		if (hd < 2)
 		{
-			for (hu = 0; hu < 10; hu++)
-			{
-				for (md = 0; md < 6; md++)
-				{
-					for (mu = 0; mu < 10; mu++)
-					{
-						_putchar(hd + '0');
-						_putchar(hu + '0');
-						_putchar(58);
-						_putchar(md + '0');
-						_putchar(mu + '0');
-						_putchar('\n');
-					}
-				}
-			}
+			a = 10;
 		}
 		else
 		{
-			for (hu = 0; hu < 4; hu++)
+			a = 4;
+		}
+		for (hu = 0; hu < a; hu++)
+		{
+			for (md = 0; md < 6; md++)
 			{
-				for (md = 0; md < 6; md++)
+				for (mu = 0; mu < 10; mu++)
 				{
-					for (mu = 0; mu < 10; mu++)
-					{
-						_putchar(hd + '0');
-						_putchar(hu + '0');
-						_putchar(58);
-						_putchar(md + '0');
-						_putchar(mu + '0');
-						_putchar('\n');
-					}
+					_putchar(hd + '0');
+					_putchar(hu + '0');
+					_putchar(58);
+					_putchar(md + '0');
+					_putchar(mu + '0');
+					_putchar('\n');
 				}
 			}
 		}
