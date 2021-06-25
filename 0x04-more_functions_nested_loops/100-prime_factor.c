@@ -14,8 +14,8 @@ int main(void)
 		while (a % b == 0 && a > 1)
 		{
 			a = a / b;
-			printf("%ld\n", b);
 		}
 	}
+	printf("%ld\n", b);
 	return (0);
 }
