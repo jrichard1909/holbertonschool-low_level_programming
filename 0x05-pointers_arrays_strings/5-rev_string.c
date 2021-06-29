@@ -13,12 +13,12 @@ void rev_string(char *s)
 	int len = 0, cont1, cont2 = 0;
 	char *str,  s2;
 
-	
+
 	for (str = s; *str != '\0'; str++)
 	{
 		len++;
 	}
-	
+
 	for (cont1 = len - 1; cont1 > cont2; cont1--)
 	{
 		s2 = s[cont1];
