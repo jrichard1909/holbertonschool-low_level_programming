@@ -13,9 +13,9 @@ int _atoi(char *s)
 	int num = 0, numsigno = 1;
 	char signo = '+';
 
-	while (*s < '0' || *s > '9')
+	while ((*s < '0' || *s > '9') && *s != '\0')
 	{
-		if ((*s == '-' || *s == '+') && *s != '\0')
+		if (*s == '-' || *s == '+') 
 		{
 			signo = (signo == *s) ? '+' : '-';
 		}
