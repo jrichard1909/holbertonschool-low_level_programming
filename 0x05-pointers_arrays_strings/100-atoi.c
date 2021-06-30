@@ -10,12 +10,13 @@
 
 int _atoi(char *s)
 {
-	int num = 0, numsigno = 1;
+	unsigned int num = 0;
+	int numsigno = 1;
 	char signo = '+';
 
 	while ((*s < '0' || *s > '9') && *s != '\0')
 	{
-		if (*s == '-' || *s == '+') 
+		if (*s == '-' || *s == '+')
 		{
 			signo = (signo == *s) ? '+' : '-';
 		}
