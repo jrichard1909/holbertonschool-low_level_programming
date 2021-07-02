@@ -19,7 +19,7 @@ int _strcmp(char *s1, char *s2)
 		s2++;
 	}
 
-	if (*s1 != '\0')
+	if (s1 != s2)
 		res = *s1 - *s2;
 
 	return (res);
