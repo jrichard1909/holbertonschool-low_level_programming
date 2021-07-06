@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stddef.h>
 
 /**
  * _strchr - prints the last digit of a number
@@ -15,6 +16,11 @@ char *_strchr(char *s, char c)
 	{
 		s++;
 	}
-	
-	return (s);
+
+	if (*s != '\0')
+	{
+		return (s);
+	}
+	else
+		return (NULL);
 }
