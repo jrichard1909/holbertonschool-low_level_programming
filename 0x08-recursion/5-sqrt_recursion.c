@@ -37,5 +37,5 @@ int _sqrt_r2(int a, int b, int c)
 	b = (a / b + b) / 2;
 	_sqrt_r2(a, b, c);
 
-	return(_sqrt_r2(a, b, c));
+	return (_sqrt_r2(a, b, c));
 }
