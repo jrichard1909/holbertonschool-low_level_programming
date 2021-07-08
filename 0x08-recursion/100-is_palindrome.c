@@ -32,7 +32,7 @@ int is_palind2(char *s, int a, int len)
 	{
 		return (1);
 	}
-	if (*(s + a) == *(s + len))
+	if (*(s + a) != *(s + len))
 	{
 		return (0);
 	}
@@ -51,5 +51,5 @@ int is_palindrome(char *s)
 {
 	int a = 0, len = strl(s);
 
-	return (is_palind2(s, a, len));
+	return (is_palind2(s, a, len - 1));
 }
