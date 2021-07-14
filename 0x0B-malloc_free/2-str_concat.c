@@ -12,23 +12,29 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	int n1 = _strlen_recursion(s1), n2 = _strlen_recursion(s2), i1 = 0, i2 = 0;
+	int n1 = 0, n2 = 0, i = 0;
 	char *s;
 
-	s = malloc(n1 + n2);
-	if (s == NULL)
-		return (0);
 	if (s1 != NULL)
 	{
-		for (i1 = 0; i1 < n1; i1++)
-			s[i1] = s1[i1];
+		n1 = _strlen_recursion(s1);
 	}
 	if (s2 != NULL)
 	{
-		for (i2 = 0; i2 < i1 + n2; i2++)
-			s[i1 + i2] = s2[i2];
+		n2 = _strlen_recursion(s2);
 	}
-	s[i1 + i2] = '\0';
+
+	s = malloc(n1 + n2 + 1);
+	if (s == NULL)
+		return (0);
+
+	for (i = 0; i < n1; i++)
+		s[i] = s1[i];
+
+	for (; i < n1 + n2; i++)
+		s[i] = s2[i - n1];
+
+	s[i] = '\0';
 
 	return (s);
 }
