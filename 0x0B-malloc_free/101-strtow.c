@@ -73,7 +73,7 @@ int lenstrw(char *str, int n)
 	int len = 0, lenw = 0, i;
 
 	if (*str != 32)
-		len++
+		len++;
 	while (*str != '\0')
 	{
 		if (len == n + 1)
@@ -108,7 +108,7 @@ char *strw(char *str, int n, int len)
 	s = malloc(len);
 
 	if (*str != 32)
-		j++
+		j++;
 	while (*str != '\0')
 	{
 		if (j == n + 1)
