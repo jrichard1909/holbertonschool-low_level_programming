@@ -13,10 +13,10 @@ char **strtow(char *str)
 	char **s, *w;
 	int lenw, i, j, lens;
 
-	if (str == NULL)
+	lenw = wordslen(str) + 1;
+	if (str == NULL || lenw == 0)
 		return (0);
 
-	lenw = wordslen(str) + 1;
 	s = malloc(lenw * sizeof(char *));
 	if (s == NULL)
 		return (0);
@@ -47,7 +47,7 @@ char **strtow(char *str)
 int wordslen(char *str)
 {
 	int len = 0;
-	
+
 	if (*str != 32)
 		len++;
 	while (*str != '\0')
