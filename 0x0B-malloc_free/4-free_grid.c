@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
- * free_grid- prints the last digit of a number
+ * - prints the last digit of a number
  * @grid: The number to print
  * @height: h
  *
