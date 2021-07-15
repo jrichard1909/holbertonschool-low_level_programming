@@ -14,7 +14,7 @@ char **strtow(char *str)
 	int lenw, i, j, lens;
 
 	lenw = wordslen(str) + 1;
-	if (str == NULL || lenw == 0)
+	if (str == NULL || lenw == 1)
 		return (0);
 
 	s = malloc(lenw * sizeof(char *));
