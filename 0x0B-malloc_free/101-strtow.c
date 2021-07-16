@@ -10,7 +10,7 @@
 
 char **strtow(char *str)
 {
-	char **s, *w;
+	char **s;
 	int lenw, i, j, lens;
 
 	lenw = wordslen(str) + 1;
@@ -24,13 +24,13 @@ char **strtow(char *str)
 	for (i = 0; i < lenw - 1; i++)
 	{
 		lens = lenstrw(str, i) + 1;
-		w = strw(str, i, lens);
 		s[i] = malloc(lens);
 		if (s[i] == NULL)
 			return (0);
 
-		for (j = 0; j < lens; j++)
-			s[i][j] = w[j];
+		for (j = 0; j < lens - 1; j++)
+			s[i][j] = strw(str, i, j);
+		s[i][j] = '\0';
 	}
 	s[i] = malloc(1);
 	s[i] = NULL;
@@ -101,12 +101,9 @@ int lenstrw(char *str, int n)
  * Return: On success 0.
  */
 
-char *strw(char *str, int n, int len)
+char strw(char *str, int n, int num)
 {
-	int i, j = 0;
-	char *s;
-
-	s = malloc(len);
+	int j = 0;
 
 	if (*str != 32)
 		j++;
@@ -114,16 +111,12 @@ char *strw(char *str, int n, int len)
 	{
 		if (j == n + 1)
 		{
-			for (i = 0; i < len - 1; i++)
-				s[i] = *(str + i);
-			s[i] = '\0';
-
-			return (s);
+			return (*(str + num));
 		}
 		if (*str == 32 && *(str + 1) != 32 && *(str + 1) != '\0')
 			j++;
 		str++;
 	}
 
-	return (s);
+	return (0);
 }
