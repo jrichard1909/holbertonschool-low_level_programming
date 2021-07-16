@@ -13,7 +13,7 @@ char **strtow(char *str)
 	char **s;
 	int lenw, i, j, lens;
 
-	lenw = wordslen(str);
+	lenw = wordslen(str) + 1;
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
@@ -21,13 +21,17 @@ char **strtow(char *str)
 	if (s == NULL)
 		return (0);
 
-	for (i = 0; i < lenw; i++)
+	for (i = 0; i < lenw - 1; i++)
 	{
 		lens = lenstrw(str, i) + 1;
 		s[i] = malloc(lens);
 		if (s[i] == NULL)
+		{
+			for (j = 0; j < lens; j++)
+				free(s[i]);
+			free(s);
 			return (0);
-
+		}
 		for (j = 0; j < lens - 1; j++)
 			s[i][j] = strw(str, i, j);
 		s[i][j] = '\0';
