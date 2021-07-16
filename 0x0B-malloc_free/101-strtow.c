@@ -40,7 +40,7 @@ char **strtow(char *str)
 
 /**
  * wordslen - prints the last digit of a number
- * @str: The number to print
+ * @ia: The number to print
  *
  * Return: On success 0.
  */
