@@ -31,7 +31,6 @@ char **strtow(char *str)
 
 		for (j = 0; j < lens; j++)
 			s[i][j] = w[j];
-		free(w);
 	}
 	s[i] = malloc(1);
 	s[i] = NULL;
