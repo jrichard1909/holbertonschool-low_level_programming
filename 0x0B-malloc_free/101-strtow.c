@@ -32,6 +32,7 @@ char **strtow(char *str)
 		for (j = 0; j < lens; j++)
 			s[i][j] = w[j];
 	}
+	s[i] = malloc(1);
 	s[i] = NULL;
 
 	return (s);
