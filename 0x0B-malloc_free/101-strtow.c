@@ -25,13 +25,14 @@ char **strtow(char *str)
 	{
 		lens = lenstrw(str, i) + 1;
 		w = strw(str, i, lens);
-		/*s[i] = malloc(lens);*/
+		s[i] = malloc(lens);
 		if (s[i] == NULL)
 			return (0);
 
 		for (j = 0; j < lens; j++)
 			s[i][j] = w[j];
 	}
+	free(w);
 	s[i] = malloc(1);
 	s[i] = NULL;
 
