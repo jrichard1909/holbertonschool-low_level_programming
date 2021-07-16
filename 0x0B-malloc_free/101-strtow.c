@@ -13,7 +13,7 @@ char **strtow(char *str)
 	char **s;
 	int lenw, i, j, lens;
 
-	lenw = wordslen(str) + 1;
+	lenw = wordslen(str);
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
@@ -21,7 +21,7 @@ char **strtow(char *str)
 	if (s == NULL)
 		return (0);
 
-	for (i = 0; i < lenw - 1; i++)
+	for (i = 0; i < lenw; i++)
 	{
 		lens = lenstrw(str, i) + 1;
 		s[i] = malloc(lens);
