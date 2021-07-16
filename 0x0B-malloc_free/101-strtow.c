@@ -21,7 +21,7 @@ char **strtow(char *str)
 	if (s == NULL)
 		return (0);
 
-	for (i = 0; i < lenw; i++)
+	for (i = 0; i < lenw - 1; i++)
 	{
 		lens = lenstrw(str, i) + 1;
 		w = strw(str, i, lens);
