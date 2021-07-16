@@ -13,11 +13,11 @@ char **strtow(char *str)
 	char **s, *w;
 	int lenw, i, j, lens;
 
-	lenw = wordslen(str);
+	lenw = wordslen(str + 1);
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
-	s = malloc(lenw * sizeof(char *) + 1);
+	s = malloc(lenw * sizeof(char *));
 	if (s == NULL)
 		return (0);
 
