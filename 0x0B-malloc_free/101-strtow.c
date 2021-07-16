@@ -13,7 +13,7 @@ char **strtow(char *str)
 	char **s, *w;
 	int lenw, i, j, lens;
 
-	lenw = wordslen(str + 1);
+	lenw = wordslen(str) + 1;
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
