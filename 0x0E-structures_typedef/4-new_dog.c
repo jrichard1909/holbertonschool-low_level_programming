@@ -16,7 +16,6 @@ dog_t *new_dog(char *name, float age, char *owner)
        	newdog = malloc(sizeof(dog_t));
 	if (newdog == NULL)
 	{
-		free(newdog);
 		return (0);
 	}
 	if (name != NULL)
@@ -24,7 +23,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		name2 = malloc(_strlen_recursion(name) + 1);
                 if (name2 == NULL)
 		{
-			free(name2);
+			free(newdog);
                         return (0);
 		}
 		newdog->name = _strncpy(name2, name);
@@ -36,7 +35,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		if (owner2 == NULL)
 		{
 			free(name2);
-			free(owner2);
+			free(newdog);
 			return (0);
 		}
 		newdog->owner = _strncpy(owner2, owner);
