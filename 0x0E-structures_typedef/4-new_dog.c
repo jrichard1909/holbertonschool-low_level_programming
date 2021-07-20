@@ -24,8 +24,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(name2);
                         return (0);
 		}
-		name2 = _strdup(name);
-		newdog->name = name2;
+		newdog->name = _strncpy(name2, name);
 	}
 	newdog->age = age;
 	if (owner != NULL)
@@ -37,25 +36,28 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(owner2);
 			return (0);
 		}
-		owner2 = _strdup(owner);
-		newdog->owner = owner2;
+		newdog->owner = _strncpy(owner2, owner);
 	}
 
 	return(newdog);
 }
 
-char *_strdup(char *str)
+char *_strncpy(char *dest, char *src)
 {
-	int n = _strlen_recursion(str), i;
-	char *s;
+	int count2;
+	int n = _strlen_recursion(src);
 
-	s = malloc(n);
-	if (s == NULL)
-		return (0);
-	for (i = 0; i < n; i++)
-		s[i] = str[i];
+	for (count2 = 0; count2 < n && src[count2] != '\0'; count2++)
+	{
+		dest[count2] = src[count2];
+	}
 
-	return (s);
+	for ( ; count2 < n; count2++)
+	{
+		dest[count2] = '\0';
+	}
+
+	return (dest);
 }
 
 
