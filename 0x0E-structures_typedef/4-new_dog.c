@@ -47,15 +47,12 @@ char *_strncpy(char *dest, char *src)
 	int count2;
 	int n = _strlen_recursion(src);
 
-	for (count2 = 0; count2 < n && src[count2] != '\0'; count2++)
+	for (count2 = 0; count2 < n; count2++)
 	{
 		dest[count2] = src[count2];
 	}
 
-	for ( ; count2 < n; count2++)
-	{
-		dest[count2] = '\0';
-	}
+	dest[count2] = '\0';
 
 	return (dest);
 }
