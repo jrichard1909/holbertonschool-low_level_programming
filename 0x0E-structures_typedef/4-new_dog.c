@@ -18,14 +18,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (0);
 	if (name != NULL)
 	{
-	name2 = _strdup(name);
-	newdog->name = name2;
+		name2 = malloc(_strlen_recursion(name) + 1);
+                if (name2 == NULL)
+                        return (0);		
+		name2 = _strdup(name);
+		newdog->name = name2;
 	}
 	newdog->age = age;
 	if (owner != NULL)
 	{
-	owner2 = _strdup(owner);
-	newdog->owner = owner2;
+		owner2 = malloc(_strlen_recursion(owner) + 1);
+		if (owner2 == NULL)
+			return (0);
+		owner2 = _strdup(owner);
+		newdog->owner = owner2;
 	}
 
 	return(newdog);
