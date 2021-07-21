@@ -27,7 +27,6 @@ char **strtow(char *str)
 		s[i] = malloc(lens);
 		if (s[i] == NULL)
 		{
-			for (j = 0; j < lens; j++)
 			free(s);
 			return (0);
 		}
