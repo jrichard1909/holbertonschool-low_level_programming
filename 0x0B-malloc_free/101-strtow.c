@@ -28,7 +28,6 @@ char **strtow(char *str)
 		if (s[i] == NULL)
 		{
 			for (j = 0; j < lens; j++)
-				free(s[i]);
 			free(s);
 			return (0);
 		}
