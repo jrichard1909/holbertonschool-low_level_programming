@@ -4,7 +4,7 @@
 /**
  * op_add - prints the last digit of a number
  * @a: The number to print
- * @b: b
+ * @: b
  *
  * Return: On success 1.
  */
