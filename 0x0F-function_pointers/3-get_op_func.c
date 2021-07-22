@@ -2,8 +2,8 @@
 #include "3-calc.h"
 
 /**
- * print_last_digit - prints the last digit of a number
- * @a: The number to print
+ * get_op_func - prints the last digit of a number
+ * @s: The number to print
  *
  * Return: On success 1.
  *
