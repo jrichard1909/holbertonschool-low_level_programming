@@ -10,17 +10,23 @@
 void print_binary(unsigned long int n)
 {
 	int ind = 0;
-	unsigned long int n_val = 1;
+	unsigned long int n_val = 1, len = 0, n2 = n;
 
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	
-	n_val = n_val << 31;
+	while (n2 > 0)
+	{
+		len++;
+		n2 = n2 >> 1;
+	}
+	len -= 1;
 
-	while (n_val > 0 )
+	n_val = (n_val << len);
+
+	while (n_val > 0)
 	{
 		if (n & n_val)
 		{
