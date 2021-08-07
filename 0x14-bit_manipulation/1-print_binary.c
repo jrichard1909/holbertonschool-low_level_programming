@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_last_digit - prints the last digit of a number
- * @a: The number to print
+ * print_binary - prints the last digit of a number
+ * @n: The number to print
  *
  * Return: On success 1.
  */
