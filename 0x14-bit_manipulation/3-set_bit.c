@@ -1,7 +1,7 @@
 /**
  * set_bit  - prints the last digit of a number
  * @n: pointer
- * @index: index 
+ * @index: index
  *
  * Return: On success 1.
  */
@@ -18,5 +18,5 @@ int set_bit(unsigned long int *n, unsigned int index)
 	num += n_val;
 	*n = num;
 
-	return(1);
+	return (1);
 }
