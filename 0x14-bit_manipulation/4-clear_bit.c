@@ -1,7 +1,7 @@
 /**
- * clear_bi t- prints the last digit of a number
+ * clear_bit - prints the last digit of a number
  * @n: The number to print
- + @index: index
+ * @index: index
  *
  * Return: On success 1.
  */
@@ -16,9 +16,9 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 	n_val = (n_val << index);
 
-	if (n_val <= num)
+	if (num & n_val)
 		num -= n_val;
 	*n = num;
 
-	return(1);
+	return (1);
 }
