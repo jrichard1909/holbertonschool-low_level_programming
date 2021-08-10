@@ -39,32 +39,24 @@ ssize_t read_tfile(const char *filename, size_t letters, char buf[])
 	return (read_n);
 }
 
-int main(int ac, char **av)
+void creat_w__file(const char *filename, char buf[], ssize_t read_n)
 {
+
 	int fd_to;
-	ssize_t read_n, write_n, close_n;
-	char buf[1024];
+	ssize_t write_n, close_n;
 
-	if (ac != 3)
-	{
-		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-
-	read_n = read_tfile(av[1], 1024, buf);
-
-	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
-			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd_to = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
+	S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 
 	write_n = write(fd_to, buf, read_n);
 	if (write_n == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 
@@ -73,6 +65,32 @@ int main(int ac, char **av)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", (int)fd_to);
 		exit(100);
+	}
+}
+
+/**
+ * main - check the code
+ * @ac: ac
+ * @av: av
+ *
+ * Return: Always 0.
+ */
+
+int main(int ac, char **av)
+{
+	ssize_t read_n = 0;
+	char buf[1024];
+
+	if (ac != 3)
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	
+	while (read_n  == 0 || read_n == 1024)
+	{
+		read_n = read_tfile(av[1], 1024, buf);
+		creat_w__file(av[2], buf, read_n);
 	}
 
 	return (0);
