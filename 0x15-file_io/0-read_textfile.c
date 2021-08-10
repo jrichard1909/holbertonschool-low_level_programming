@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * print_last_digit - prints the last digit of a number
- * @a: The number to print
+ * read_textfile - prints the last digit of a number
+ * @filename: The number to print
+ * @letters: letters
  *
  * Return: On success 1.
  */
@@ -21,12 +22,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	buf = malloc(letters);
 	if (buf == NULL)
-		return(0);
+		return (0);
 
 	read_n = read(fd, buf, letters);
 	if (read_n == -1)
 	{
 		free(buf);
+		close(fd);
 		return (0);
 	}
 
@@ -34,6 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (write_n == -1)
 	{
 		free(buf);
+		close(fd);
 		return (0);
 	}
 	free(buf);
