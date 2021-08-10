@@ -10,7 +10,7 @@
  */
 
 
-ssize_t read_tfile(const char *filename, size_t letters, char buf[])
+ssize_t read_tfile(const char *filename, size_t letters, char *buf[])
 {
 	ssize_t read_n, close_n;
 	int fd_from;
@@ -39,7 +39,7 @@ ssize_t read_tfile(const char *filename, size_t letters, char buf[])
 	return (read_n);
 }
 
-void creat_w__file(const char *filename, char buf[], ssize_t read_n)
+void creat_w__file(const char *filename, char *buf[], ssize_t read_n)
 {
 
 	int fd_to;
@@ -79,14 +79,14 @@ void creat_w__file(const char *filename, char buf[], ssize_t read_n)
 int main(int ac, char **av)
 {
 	ssize_t read_n = 0;
-	char buf[1024];
+	char *buf[1024];
 
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	
+
 	while (read_n  == 0 || read_n == 1024)
 	{
 		read_n = read_tfile(av[1], 1024, buf);
