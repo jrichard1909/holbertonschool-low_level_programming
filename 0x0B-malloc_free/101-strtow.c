@@ -11,30 +11,25 @@
 char **strtow(char *str)
 {
 	char **s;
-	int lenw, i, j, lens;
+	int lenw, i;
 
-	lenw = wordslen(str) + 1;
+	lenw = wordslen(str);
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
-	s = malloc(lenw * sizeof(char *));
+	s = malloc((lenw + 1) * sizeof(char *));
 	if (s == NULL)
 		return (0);
 
-	for (i = 0; i < lenw - 1; i++)
+	for (i = 0; i < lenw; i++)
 	{
-		lens = lenstrw(str, i) + 1;
-		s[i] = malloc(lens);
+		s[i] = strw(str, i);
 		if (s[i] == NULL)
 		{
 			free(s);
 			return (0);
 		}
-		for (j = 0; j < lens - 1; j++)
-			s[i][j] = strw(str, i, j);
-		s[i][j] = '\0';
 	}
-	s[i] = malloc(1);
 	s[i] = NULL;
 
 	return (s);
@@ -103,22 +98,29 @@ int lenstrw(char *str, int n)
  * Return: On success 0.
  */
 
-char strw(char *str, int n, int num)
+char *strw(char *str, int n)
 {
-	int j = 0;
+	int i = 0, j = 0, k = 0, len = lenstrw(str, n);
+	char *str_dup;
+
+	str_dup = malloc((len + 1) * sizeof(char));
+	if (str_dup == NULL)
+		return (0);
 
 	if (*str != 32)
 		j++;
-	while (*str != '\0')
+	while (str[i])
 	{
 		if (j == n + 1)
 		{
-			return (*(str + num));
+			for (; k < len; i++)
+				str_dup[k++] = str[i];
+			str_dup[k] = '\0';    
+			break;
 		}
-		if (*str == 32 && *(str + 1) != 32 && *(str + 1) != '\0')
+		if (str[i] == 32 && str[i+ 1] != 32 && str[i+ 1] != '\0')
 			j++;
-		str++;
+		i++;
 	}
-
-	return (0);
+	return (str_dup);
 }

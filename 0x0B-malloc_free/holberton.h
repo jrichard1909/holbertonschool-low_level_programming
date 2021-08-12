@@ -7,4 +7,4 @@ void free_grid(int **grid, int height);
 char **strtow(char *str);
 int wordslen(char *str);
 int lenstrw(char *str, int n);
-char strw(char *str, int n, int num);
+char *strw(char *str, int n);
