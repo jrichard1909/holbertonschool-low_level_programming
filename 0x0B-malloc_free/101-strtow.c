@@ -17,7 +17,7 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0' || lenw == 1)
 		return (0);
 
-	s = malloc((lenw + 1) * sizeof(char *));
+	s = malloc((lenw) * sizeof(char *));
 	if (s == NULL)
 		return (0);
 
@@ -30,14 +30,13 @@ char **strtow(char *str)
 			return (0);
 		}
 	}
-	s[i] = NULL;
 
 	return (s);
 }
 
 /**
  * wordslen - prints the last digit of a number
- * @ia: The number to print
+ * @str: The number to print
  *
  * Return: On success 0.
  */
@@ -93,7 +92,6 @@ int lenstrw(char *str, int n)
  * strw- prints the last digit of a number
  * @str: The number to print
  * @n: n
- * @len: len
  *
  * Return: On success 0.
  */
@@ -115,10 +113,10 @@ char *strw(char *str, int n)
 		{
 			for (; k < len; i++)
 				str_dup[k++] = str[i];
-			str_dup[k] = '\0';    
+			str_dup[k] = '\0';
 			break;
 		}
-		if (str[i] == 32 && str[i+ 1] != 32 && str[i+ 1] != '\0')
+		if (str[i] == 32 && str[i + 1] != 32 && str[i + 1] != '\0')
 			j++;
 		i++;
 	}
