@@ -30,6 +30,7 @@ char **strtow(char *str)
 			return (0);
 		}
 	}
+	s[i] = NULL;
 
 	return (s);
 }
