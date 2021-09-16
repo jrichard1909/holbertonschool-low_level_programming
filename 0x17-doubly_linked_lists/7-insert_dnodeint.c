@@ -21,14 +21,14 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	temp = *h;
 	while (temp)
 	{
-		if (count == idx -1)
+		if (count == idx - 1)
 			break;
 
 		count++;
 		temp = temp->next;
 	}
 
-	if (count != idx - 1)
+	if (count != idx - 1 || !temp)
 		return (0);
 
 	node = malloc(sizeof(dlistint_t));
