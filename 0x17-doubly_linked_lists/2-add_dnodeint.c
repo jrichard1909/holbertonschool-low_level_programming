@@ -1,11 +1,11 @@
-  
 #include "lists.h"
 
 /**
- * print_dlistint - prints all the elements of a dlistint_t list
- * @h: linked lsit
+ * add_dnodeint - prints all the elements of a dlistint_t list
+ * @head: linked lsit
+ * @n: data
  *
- * Return: count.
+ * Return: new linked list.
  */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)

@@ -1,8 +1,9 @@
 #include "lists.h"
 
 /**
- * print_dlistint - prints all the elements of a dlistint_t list
- * @h: linked lsit
+ * add_dnodeint_end - prints all the elements of a dlistint_t list
+ * @head: linked lsit
+ * @n: data
  *
  * Return: count.
  */
