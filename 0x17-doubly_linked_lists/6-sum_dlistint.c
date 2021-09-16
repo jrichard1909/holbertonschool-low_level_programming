@@ -1,15 +1,16 @@
 #include "lists.h"
 
 /**
- * dlistint_len - returns the number of elements in a linked list
- * @h: linked lsit
+ * sum_dlistint - returns the number of elements in a linked list
+ * @head: linked lsit
  *
- * Return: count.
+ * Return: sum
  */
 
 int sum_dlistint(dlistint_t *head)
 {
 	int sum = 0;
+
 	if (head == NULL)
 		return (0);
 
