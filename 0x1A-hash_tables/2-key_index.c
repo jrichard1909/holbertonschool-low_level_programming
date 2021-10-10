@@ -3,7 +3,7 @@
 /**
  * key_index - implementation of the djb2 algorithm
  * @key: key
- * @size: string used to generate hash value
+ * @siz: string used to generate hash value
  *
  * Return: key index
  */
