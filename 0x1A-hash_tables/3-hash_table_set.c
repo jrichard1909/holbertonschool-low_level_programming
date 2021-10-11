@@ -1,10 +1,12 @@
 #include "hash_tables.h"
 
 /**
- * hash_djb2 - implementation of the djb2 algorithm
- * @str: string used to generate hash value
+ * hash_table_set - implementation of the djb2 algorithm
+ * @ht: hash table
+ * @key: key
+ * @value: value of a key
  *
- * Return: hash value
+ * Return: table modified
  */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
@@ -17,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = hash_djb2((const unsigned char *)key) % ht->size;
-	
+
 	tmp = ht->array[index];
 
 	if (tmp != NULL)
@@ -42,6 +44,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		new_node->next = ht->array[index];
 
 	ht->array[index] = new_node;
-	
+
 	return (1);
 }
