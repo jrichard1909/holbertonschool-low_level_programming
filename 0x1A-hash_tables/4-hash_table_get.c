@@ -1,10 +1,9 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set - implementation of the djb2 algorithm
+ * hash_table_get - implementation of the djb2 algorithm
  * @ht: hash table
  * @key: key
- * @value: value of a key
  *
  * Return: table modified
  */
@@ -18,7 +17,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
-	
+
 	tmp_node = ht->array[index];
 
 	while (tmp_node != NULL)
