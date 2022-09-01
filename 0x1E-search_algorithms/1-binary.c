@@ -15,7 +15,7 @@ int binary_search(int *array, size_t size, int value)
 	if (!array || size == 0)
 		return (-1);
 
-	return (help_binary(array, value, 0, size - 1));
+	return (func_binary(array, value, 0, size - 1));
 }
 
 /**
@@ -33,7 +33,7 @@ int func_binary(int *array, int value, size_t lo, size_t hi)
 {
 	size_t mid;
 
-	array_print(array, lo, hi);
+	print_array(array, lo, hi);
 	if (hi == lo && array[lo] != value)
 		return (-1);
 
@@ -41,9 +41,9 @@ int func_binary(int *array, int value, size_t lo, size_t hi)
 	if (array[mid] == value)
 		return (mid);
 	if (array[mid] < value)
-		return (help_binary(array, value, mid + 1, hi));
+		return (func_binary(array, value, mid + 1, hi));
 	if (array[mid] > value)
-		return (help_binary(array, value, lo, mid - 1));
+		return (func_binary(array, value, lo, mid - 1));
 	return (-1);
 }
 
